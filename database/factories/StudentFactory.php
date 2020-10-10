@@ -22,7 +22,15 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'email' => $this->$faker->unique()->safeEmail,
+            // 'email_verified_at' => now(),
+            'password' => bcrypt('secret'), // password
+            // 'remember_token' => Str::random(10),
+            'name' => $this->$faker->name,
+            'lastName' => $this->$faker->lastName,
+            'motherLastName' => $this->$faker->lastName,
+            'phone' => '833-251-5482',
+            'role' => $this->$faker->randomElement(['student','teacher'])
         ];
     }
 }
